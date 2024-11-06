@@ -14,7 +14,7 @@ app.listen(port, () => {
 /* Primo endpoint */
 const menu = require('./db/menu.js')
 
-app.get('/pizze', (req, res) => {
+app.get('/cibo', (req, res) => {
     res.json({
       data: menu,
       count: menu.length
@@ -22,10 +22,10 @@ app.get('/pizze', (req, res) => {
   });
 
 /* Secondo endpoint */
-app.get('/pizze/:id', (req, res) => {
-    const pizza = menu.find((pizza) => pizza.id === parseInt(req.params.id))
-    if (!pizza) {
-    return res.status(404).json({ error: "No pizza found with that id" })
+app.get('/cibo/:id', (req, res) => {
+    const ciambellone = menu.find((ciambellone) => ciambellone.id === parseInt(req.params.id))
+    if (!ciambellone) {
+    return res.status(404).json({ error: "No ciambellone found with that id" })
     }
-  return res.status(200).json({ data: pizza })
+  return res.status(200).json({ data: ciambellone })
 });
